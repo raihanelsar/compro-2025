@@ -98,6 +98,7 @@ if (isset($_POST['simpan'])) {
             <div class="mb-3">
               <label for="">Gambar</label>
               <input type="file" name="image" required>
+              <small class="text-danger">*image must be in landscape or 1928x1080</small>
             </div>
             <div class="mb-3">
               <label for="">Judul</label>
