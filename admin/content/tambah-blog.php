@@ -92,13 +92,13 @@ $rowCategories = mysqli_fetch_all($queryCategories, MYSQLI_ASSOC);
 </div><!-- End Page Title -->
 
 <section class="section">
-  <div class="row">
-    <div class="col-lg-8">
+  <form action="" method="post" enctype="multipart/form-data">
+    <div class="row">
+      <div class="col-lg-8">
 
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title"><?php echo $titlePage ?></h5>
-          <form action="" method="post" enctype="multipart/form-data">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><?php echo $titlePage ?></h5>
             <div class="mb-3">
               <label for="" class="form-label">Gambar</label>
               <input type="file" name="image" required>
@@ -119,24 +119,20 @@ $rowCategories = mysqli_fetch_all($queryCategories, MYSQLI_ASSOC);
                 value="<?php echo ($id) ? $rowEdit['title'] : '' ?>">
             </div>
             <div class="mb-3">
-              <label for="">Isi</label>
+              <label for="" class="form-label">Isi</label>
               <textarea name="content" id="summernote"
                 class="form-control"><?php echo ($id) ? $rowEdit['content'] : '' ?></textarea>
             </div>
-
-          </form>
-
+          </div>
         </div>
+
       </div>
 
-    </div>
+      <div class="col-lg-4">
 
-    <div class="col-lg-4">
-
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title"><?php echo $titlePage ?></h5>
-          <form action="" method="post" enctype="multipart/form-data">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><?php echo $titlePage ?></h5>
 
             <div class="mb-3">
               <label for="" class="form-label">Status</label>
@@ -151,12 +147,12 @@ $rowCategories = mysqli_fetch_all($queryCategories, MYSQLI_ASSOC);
               <button class="btn btn-outline-primary" type="submit" name="simpan">Simpan</button>
               <a href="?page=slider" class="text-muted">Kembali</a>
             </div>
-          </form>
 
+          </div>
         </div>
+
       </div>
 
     </div>
-
-  </div>
+  </form>
 </section>
