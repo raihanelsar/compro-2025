@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 13, 2025 at 09:50 AM
+-- Generation Time: Aug 14, 2025 at 10:06 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -62,6 +62,13 @@ CREATE TABLE `blogs` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `blogs`
+--
+
+INSERT INTO `blogs` (`id`, `id_category`, `title`, `content`, `writer`, `is_active`, `image`, `tags`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Akagami', '<p>1 Keping</p>', 'Admin', 1, '1755156490-akagami.jpeg', '[{\"value\":\"asdasd\"},{\"value\":\"avfasda\"}]', '2025-08-14 07:28:10', '2025-08-14 07:53:32');
 
 -- --------------------------------------------------------
 
@@ -240,7 +247,7 @@ ALTER TABLE `about`
 -- AUTO_INCREMENT for table `blogs`
 --
 ALTER TABLE `blogs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `categories`

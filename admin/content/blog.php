@@ -1,8 +1,7 @@
 <?php
 // JOIN
-$query = mysqli_query($koneksi, "SELECT categories.name, blogs.* FROM blogs
-JOIN categories ON categories.id = blogs.id_category 
-ORDER BY blogs.id DESC");
+$query = mysqli_query($koneksi, "SELECT blogs.*, categories.name AS category_name FROM blogs JOIN categories ON categories.id = blogs.id_category
+    ORDER BY blogs.id DESC");
 $rows = mysqli_fetch_all($query, MYSQLI_ASSOC);
 
 function changeIsActive($isActive)
@@ -51,7 +50,7 @@ function changeIsActive($isActive)
                   <td><?php echo $key += 1 ?></td>
                   <td><img width="100" src="uploads/<?php echo $row['image'] ?>" alt=""></td>
                   <td><?php echo $row['title'] ?></td>
-                  <td><?php echo $row['name'] ?></td>
+                  <td><?php echo $row['category_name'] ?></td>
                   <td><?php echo changeIsActive($row['is_active']) ?></td>
                   <td>
                     <a href="?page=tambah-blog&edit=<?php echo $row['id'] ?>" class="btn btn-sm btn-success">Edit</a>
