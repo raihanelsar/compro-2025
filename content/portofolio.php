@@ -20,32 +20,33 @@ $rowCategories = mysqli_fetch_all($queryCategories, MYSQLI_ASSOC);
 
 <section id="portfolio" class="portfolio section">
   <div class="container">
+    <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+      <!-- Filters -->
+      <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+        <li class="filter-active" data-filter="*">All</li>
+        <?php foreach ($rowCategories as $rowCategory): ?>
+          <li data-filter=".filter-<?php echo $rowCategory['id']; ?>">
+            <?php echo htmlspecialchars($rowCategory['name']); ?>
+          </li>
+        <?php endforeach; ?>
+      </ul>
 
-    <!-- Filters -->
-    <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-      <li class="filter-active" data-filter="*">All</li>
-      <?php foreach ($rowCategories as $rowCategory): ?>
-        <li data-filter=".filter-<?php echo $rowCategory['id']; ?>">
-          <?php echo htmlspecialchars($rowCategory['name']); ?>
-        </li>
-      <?php endforeach; ?>
-    </ul>
-
-    <!-- Portfolio Items -->
-    <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-      <?php foreach ($rowPortofolios as $keyPortofolio): ?>
-        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-<?php echo $keyPortofolio['id_category'] ?>">
-          <img src="admin/uploads/<?php echo $keyPortofolio['image'] ?>" class="img-fluid" alt="">
-          <div class="portfolio-info">
-            <h4><?php echo $keyPortofolio['title'] ?></h4>
-            <p><?php echo htmlspecialchars($keyPortofolio['description'] ?? 'No description'); ?></p>
-            <a href="admin/uploads/<?php echo $keyPortofolio['image'] ?>" title="View Image"
-              data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-            <a href="?page=portofolio-detail&id=<?php echo $keyPortofolio['id'] ?>" title="More Details"
-              class="details-link"><i class="bi bi-link-45deg"></i></a>
+      <!-- Portfolio Items -->
+      <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+        <?php foreach ($rowPortofolios as $keyPortofolio): ?>
+          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-<?php echo $keyPortofolio['id_category'] ?>">
+            <img src="admin/uploads/<?php echo $keyPortofolio['image'] ?>" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4><?php echo $keyPortofolio['title'] ?></h4>
+              <p><?php echo htmlspecialchars($keyPortofolio['description'] ?? 'No description'); ?></p>
+              <a href="admin/uploads/<?php echo $keyPortofolio['image'] ?>" title="View Image"
+                data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+              <a href="?page=portofolio-detail&id=<?php echo $keyPortofolio['id'] ?>" title="More Details"
+                class="details-link"><i class="bi bi-link-45deg"></i></a>
+            </div>
           </div>
-        </div>
-      <?php endforeach; ?>
+        <?php endforeach; ?>
+      </div>
     </div>
   </div>
 </section>
