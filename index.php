@@ -105,6 +105,37 @@ $rowClients    = mysqli_fetch_all($queryClients, MYSQLI_ASSOC);
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Init Isotope
+      let isoContainer = document.querySelector('.isotope-container');
+      let iso = new Isotope(isoContainer, {
+        itemSelector: '.isotope-item',
+        layoutMode: 'masonry'
+      });
+
+      // Filter buttons
+      let filterButtons = document.querySelectorAll('.portfolio-filters li');
+      filterButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+          // Remove active class from all
+          filterButtons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          let filterValue = btn.getAttribute('data-filter');
+          iso.arrange({
+            filter: filterValue
+          });
+        });
+      });
+
+      // Init GLightbox
+      const lightbox = GLightbox({
+        selector: '.glightbox'
+      });
+    });
+  </script>
+
 </body>
 
 </html>
